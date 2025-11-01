@@ -1,22 +1,28 @@
 # 🐕 Resgates dos dog RJ - PWA
 
-Site acessivel, responsivo e instalavel (PWA) desenvolvido como projeto de extensao front-end.
+Site acessível, responsivo e instalável (PWA) desenvolvido como projeto de extensão front-end para ONG de resgate de cães do Rio de Janeiro.
 
-Aplicacao web progressiva para ONG de resgate de caes do Rio de Janeiro.
+## 🚀 Sobre o Projeto
+Projeto de extensão front-end desenvolvido para apoiar o trabalho de resgate e cuidado de cães no Rio de Janeiro.
 
-## 🚀 Funcionalidades
-- PWA (Instalavel como app)
-- Design responsivo 
-- Acessibilidade 100% (Lighthouse)
-- Campanha de doacoes
-- Vue.js + Tailwind CSS
+## 🛠️ Tecnologias Utilizadas
+- **Vue.js 3** - Framework JavaScript
+- **Tailwind CSS** - Framework CSS
+- **PWA** (Progressive Web App)
+- **HTML5 Semântico**
+- **CSS3**
 
-## 📱 Tecnologias
-- Vue.js 3
-- Tailwind CSS  
-- Service Worker
-- HTML5 Semantico
-- CSS3
+## 📱 Funcionalidades
+- ✅ PWA (Instalável como app)
+- ✅ Design responsivo
+- ✅ Acessibilidade 100% (Lighthouse)
+- ✅ Campanha de doações
+- ✅ Lista de necessidades prioritárias
+- ✅ Funciona offline
 
 ## 🌐 Acesso
-Disponivel via GitHub Pages
+**GitHub Pages:** https://[seu-usuario].github.io/pwa-projeto-extensao
+
+---
+
+*Desenvolvido como projeto de extensão front-end.*
