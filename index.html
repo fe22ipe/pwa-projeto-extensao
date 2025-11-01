@@ -1,0 +1,178 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>Projeto de Extensão — Entidade X</title> 
+
+  <!-- Google Fonts --> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  /* Animação de surgir */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+  
+  /* Efeito hover nas imagens */
+  .transform {
+    transition: all 0.3s ease;
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+</style>
+ 
+  <!-- Tailwind CSS (CDN) --> 
+  <script src="https://cdn.tailwindcss.com"></script> 
+ 
+  <!-- Manifest PWA --> 
+  <link rel="manifest" href="manifest.webmanifest"> 
+ 
+  <!-- Cor do tema do app (PWA) --> 
+  <meta name="theme-color" content="#059669"> 
+</head> 
+<body class="min-h-screen bg-slate-50 text-slate-800"> 
+  <!-- Link pular para conteúdo (Acessibilidade) --> 
+  <a href="#conteudo-principal" 
+     class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-green-50
+700 text-white px-3 py-2 rounded"> 
+     Ir para o conteúdo principal 
+  </a> 
+ 
+<header class="max-w-5xl mx-auto px-4 py-6 bg-green-50 rounded-b-xl">
+  <h1 class="text-3xl font-bold text-green-900">Resgates dos dog RJ</h1>
+  <p class="mt-1 text-green-800">Resgatando, cuidando e encontrando lares para cães do Rio de Janeiro</p>
+</header>
+ 
+  <main id="app" class="max-w-5xl mx-auto px-4 pb-24"> 
+    <!-- Navegação responsiva --> 
+    <nav class="mt-4" aria-label="Navegação principal"> 
+      <button
+        class="md:hidden inline-flex items-center gap-2 rounded bg-green-700 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+        @click="menuAberto = !menuAberto"
+        :aria-expanded="menuAberto.toString()"                                                                                                                                                                                                    
+        aria-controls="menu-principal"
+        aria-label="Abrir ou fechar menu de navegação"
+        type="button"
+      >
+        <span aria-hidden="true">☰</span>
+        <span class="sr-only">Menu</span>
+      </button>
+ 
+  <nav class="mt-4" aria-label="Navegação principal">
+    <ul id="menu-principal" class="mt-3 md:mt-0 md:flex md:gap-6" 
+      :class="menuAberto ? 'block' : 'hidden md:flex'">
+    <li><a class="hover:underline text-green-700 hover:text-green-800 
+                 focus:outline-none focus:ring-2 focus:ring-green-400" 
+           href="#inicio">Início</a></li>
+    <li><a class="hover:underline text-green-700 hover:text-green-800 
+                 focus:outline-none focus:ring-2 focus:ring-green-400" 
+           href="#sobre">Sobre</a></li>
+    <li><a class="hover:underline text-green-700 hover:text-green-800 
+                 focus:outline-none focus:ring-2 focus:ring-green-400" 
+           href="#contato">Contato</a></li>
+  </ul>
+</nav> 
+ 
+    <!-- Seção de boas-vindas com contador reativo --> 
+ <section id="inicio" aria-labelledby="sec-intro" class="bg-white rounded-xl shadow p-6 mt-6">
+  <h2 id="sec-intro" class="text-xl font-semibold text-green-900">Boas-vindas ao Resgates dos dog RJ</h2>
+  <p class="mt-2 text-green-800">Há 5 anos resgatando, cuidando e encontrando lares para cães do Rio de Janeiro</p>
+  
+  <!-- IMAGEM AQUI -->
+  <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+  
+  <!-- Imagem 1 -->
+  <img src="img/resgate-ativo.jpg" 
+       alt="Voluntários do Resgates dos dog RJ resgatando cães de rua" 
+       class="rounded-lg shadow transition-all duration-500 transform hover:scale-105 opacity-0 animate-fade-in"
+       style="animation-delay: 0.1s">
+  
+  <!-- Imagem 2 -->
+  <img src="img/doacoes-caes.jpg" 
+       alt="Doações de ração para cães resgatados" 
+       class="rounded-lg shadow transition-all duration-500 transform hover:scale-105 opacity-0 animate-fade-in"
+       style="animation-delay: 0.3s">
+  
+  <!-- Imagem 3 -->
+  <img src="img/abrigo-caes.jpg" 
+       alt="Cães resgatados no nosso abrigo temporário" 
+       class="rounded-lg shadow transition-all duration-500 transform hover:scale-105 opacity-0 animate-fade-in"
+       style="animation-delay: 0.5s">
+       
+</div>
+       
+  <p class="mt-4 text-green-800">Já resgatamos mais de 500 cães e encontramos lares para 80% deles!</p>
+</section>
+ 
+    <!-- ÁREA DE CENÁRIOS: escolha 1 (A, B ou C) e cole a seção correspondente mais 
+abaixo --> 
+    <section id="sobre" aria-labelledby="doacoes" class="bg-white rounded-xl shadow p-6 
+mt-6"> 
+  <h2 id="doacoes" class="text-xl font-semibold">Campanha de Doações</h2> 
+  <p class="mt-2">Total de doações simuladas: <strong class="text-green-900">R$ {{ 
+doacoes }}</strong></p> 
+  <div class="mt-4 flex gap-2"> 
+    <button class="rounded bg-green-700 px-3 py-2 text-white hover:bg-green-800 
+focus:outline-none focus:ring-2 focus:ring-sky-400" 
+            @click="doacoes += 10" aria-label="Adicionar 10 reais">+ R$10</button> 
+    <button class="rounded bg-slate-300 px-3 py-2 hover:bg-slate-300 focus:outline
+none focus:ring-2 focus:ring-sky-400" 
+            @click="doacoes = 0" aria-label="Zerar valor">Zerar</button> 
+  </div> 
+  <button 
+    @click="agradecer = !agradecer" 
+    class="mt-4 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-colors">
+    {{ agradecer ? '🐕 Obrigado pela ajuda!' : 'Enviar agradecimento' }} 
+  </button>
+</section> 
+ 
+<section id="contato" aria-labelledby="necessidades" class="bg-white rounded-xl shadow 
+p-6 mt-6"> 
+  <h2 id="necessidades" class="text-xl font-semibold">Necessidades Prioritárias</h2> 
+  <ul class="mt-3 space-y-2"> 
+    <li v-for="item in itens" :key="item.id" class="flex items-center gap-3"> 
+      <input type="checkbox" :id="'i'+item.id" v-model="item.ok" 
+             class="h-5 w-5 rounded border-slate-300 focus:ring-2 focus:ring-sky-400" 
+             :aria-describedby="'d'+item.id"> 
+      <label :for="'i'+item.id" class="font-medium">{{ item.nome }}</label> 
+      <small :id="'d'+item.id" class="text-slate-500">prioridade {{ item.prioridade 
+}}</small> 
+    </li> 
+  </ul> 
+</section>
+ 
+  </main> 
+ 
+  <footer class="max-w-5xl mx-auto px-4 py-8 text-sm text-slate-500"> 
+    <p>2025 — Projeto de Extensão Front-end</p> 
+  </footer> 
+ 
+  <!-- Vue 3 (CDN, produção) --> 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> 
+ 
+  <!-- App --> 
+  <script src="main.js"></script> 
+ 
+  <!-- Registro do Service Worker (PWA) --> 
+  <script> 
+    if ('serviceWorker' in navigator) { 
+      window.addEventListener('load', () => { 
+        navigator.serviceWorker.register('./sw.js'); 
+      }); 
+    } 
+  </script> 
+</body> 
+</html> 
